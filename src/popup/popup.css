@@ -1,0 +1,249 @@
+body {
+  width: 360px;
+  min-height: 480px;
+  margin: 0;
+  background: var(--pf-bg-deep);
+  overflow: hidden;
+}
+
+.popup {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(212, 168, 83, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(126, 184, 255, 0.06), transparent),
+    var(--pf-bg-deep);
+  pointer-events: none;
+}
+
+.popup__content {
+  position: relative;
+  z-index: 1;
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.popup__logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.popup__logo {
+  font-size: 28px;
+  filter: drop-shadow(0 0 12px var(--pf-gold-glow));
+}
+
+.popup__title {
+  font-family: var(--pf-serif);
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.popup__tagline {
+  font-size: 12px;
+  color: var(--pf-text-muted);
+  letter-spacing: 0.06em;
+}
+
+.popup__page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--pf-border);
+  color: var(--pf-text-muted);
+}
+
+.popup__page-badge--active {
+  color: var(--pf-emerald);
+  border-color: rgba(62, 207, 142, 0.3);
+  background: rgba(62, 207, 142, 0.08);
+}
+
+.popup__page-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.popup__session-card {
+  background: var(--pf-bg-panel);
+  border: 1px solid var(--pf-border);
+  border-radius: var(--pf-radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  backdrop-filter: var(--pf-blur);
+}
+
+.popup__session-card--active {
+  border-color: var(--pf-border-strong);
+  box-shadow: 0 0 40px var(--pf-gold-glow);
+}
+
+.popup__session-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--pf-text-muted);
+  margin-bottom: 12px;
+}
+
+.popup__session-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+.popup__session-stat span {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.popup__session-stat label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pf-text-muted);
+}
+
+.popup__cta {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup__cta .pf-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 14px;
+}
+
+.popup__records {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--pf-border);
+}
+
+.popup__records h3 {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--pf-text-muted);
+  margin-bottom: 10px;
+}
+
+.popup__record-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 12px;
+}
+
+.popup__record-row span:last-child {
+  font-weight: 600;
+  color: var(--pf-gold-light);
+}
+
+.popup__footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.popup__footer .pf-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 11px;
+}
+
+.popup__daily-bar {
+  margin-bottom: 16px;
+}
+
+.popup__daily-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--pf-text-muted);
+  margin-bottom: 6px;
+}
+
+.popup__daily-bar-track {
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.popup__daily-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pf-gold), var(--pf-emerald));
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.popup__toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 12px;
+  color: var(--pf-text-muted);
+}
+
+.popup__toggle {
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  position: relative;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.popup__toggle--on {
+  background: var(--pf-gold);
+}
+
+.popup__toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  transition: transform 0.2s;
+}
+
+.popup__toggle--on .popup__toggle-knob {
+  transform: translateX(16px);
+}

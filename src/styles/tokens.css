@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap');
+
+:root {
+  --pf-bg-deep: #06080f;
+  --pf-bg-panel: rgba(14, 18, 28, 0.82);
+  --pf-bg-elevated: rgba(22, 28, 42, 0.92);
+  --pf-border: rgba(212, 168, 83, 0.18);
+  --pf-border-strong: rgba(212, 168, 83, 0.45);
+  --pf-gold: #d4a853;
+  --pf-gold-light: #f0c674;
+  --pf-gold-glow: rgba(212, 168, 83, 0.35);
+  --pf-emerald: #3ecf8e;
+  --pf-rose: #f07178;
+  --pf-sky: #7eb8ff;
+  --pf-text: #f4f0e8;
+  --pf-text-muted: rgba(244, 240, 232, 0.55);
+  --pf-text-dim: rgba(244, 240, 232, 0.35);
+  --pf-serif: 'Instrument Serif', Georgia, serif;
+  --pf-sans: 'DM Sans', system-ui, sans-serif;
+  --pf-radius: 16px;
+  --pf-radius-sm: 10px;
+  --pf-shadow: 0 24px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--pf-border);
+  --pf-blur: blur(20px);
+}

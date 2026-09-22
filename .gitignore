@@ -1,0 +1,6 @@
+node_modules/
+dist/
+puzzleflow-chrome-web-store.zip
+puzzleflow-chrome-web-store/
+.DS_Store
+*.local

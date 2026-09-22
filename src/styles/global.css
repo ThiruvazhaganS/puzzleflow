@@ -1,0 +1,106 @@
+@import './tokens.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--pf-sans);
+  background: var(--pf-bg-deep);
+  color: var(--pf-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.pf-serif {
+  font-family: var(--pf-serif);
+}
+
+.pf-gold-text {
+  background: linear-gradient(135deg, var(--pf-gold-light), var(--pf-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--pf-radius-sm);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+
+.pf-btn-primary {
+  background: linear-gradient(135deg, var(--pf-gold-light), var(--pf-gold));
+  color: #1a1208;
+  box-shadow: 0 4px 24px var(--pf-gold-glow);
+}
+
+.pf-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px var(--pf-gold-glow);
+}
+
+.pf-btn-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--pf-text-muted);
+  border: 1px solid var(--pf-border);
+}
+
+.pf-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--pf-text);
+  border-color: var(--pf-border-strong);
+}
+
+.pf-btn-danger {
+  background: rgba(240, 113, 120, 0.12);
+  color: var(--pf-rose);
+  border: 1px solid rgba(240, 113, 120, 0.25);
+}
+
+.pf-btn-danger:hover {
+  background: rgba(240, 113, 120, 0.2);
+}
+
+.pf-glass {
+  background: var(--pf-bg-panel);
+  backdrop-filter: var(--pf-blur);
+  -webkit-backdrop-filter: var(--pf-blur);
+  border: 1px solid var(--pf-border);
+  box-shadow: var(--pf-shadow);
+}
+
+@keyframes pf-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pf-pulse-ring {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.02); }
+}
+
+@keyframes pf-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pf-confetti-fall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(60px) rotate(360deg); opacity: 0; }
+}

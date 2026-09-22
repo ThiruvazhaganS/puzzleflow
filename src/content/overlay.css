@@ -1,0 +1,406 @@
+#puzzleflow-root {
+  all: initial;
+  font-family: var(--pf-sans);
+}
+
+#puzzleflow-root * {
+  box-sizing: border-box;
+}
+
+.pf-overlay {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2147483646;
+  width: 220px;
+  padding: 16px;
+  border-radius: 20px;
+  background: var(--pf-bg-panel);
+  backdrop-filter: var(--pf-blur);
+  -webkit-backdrop-filter: var(--pf-blur);
+  border: 1px solid var(--pf-border);
+  box-shadow: var(--pf-shadow);
+  animation: pf-fade-in 0.4s ease;
+  color: var(--pf-text);
+}
+
+.pf-overlay--collapsed {
+  width: auto;
+  min-width: 88px;
+  padding: 10px 14px;
+}
+
+.pf-overlay__glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 20px;
+  background: radial-gradient(ellipse at top, var(--pf-gold-glow), transparent 70%);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.pf-overlay__collapse {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  color: var(--pf-text-dim);
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.pf-overlay__collapse:hover {
+  color: var(--pf-gold);
+}
+
+.pf-overlay__brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding-right: 20px;
+}
+
+.pf-overlay__logo {
+  font-size: 18px;
+  filter: drop-shadow(0 0 8px var(--pf-gold-glow));
+}
+
+.pf-overlay__name {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.pf-overlay__status {
+  margin-left: auto;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pf-text-dim);
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.04);
+}
+
+.pf-overlay__status--live {
+  color: var(--pf-emerald);
+  background: rgba(62, 207, 142, 0.12);
+  animation: pf-pulse-ring 2s ease infinite;
+}
+
+.pf-timer-ring {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 4px 0 12px;
+}
+
+.pf-timer-ring__center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pf-timer-ring__time {
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.pf-timer-ring__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--pf-text-dim);
+  margin-top: 4px;
+}
+
+.pf-timer-ring__dot--live {
+  background: var(--pf-emerald);
+  box-shadow: 0 0 8px var(--pf-emerald);
+}
+
+.pf-overlay__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.pf-stat {
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  padding: 8px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.pf-stat__val {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.pf-stat__lbl {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pf-text-muted);
+}
+
+.pf-stat--green .pf-stat__val { color: var(--pf-emerald); }
+.pf-stat--red .pf-stat__val { color: var(--pf-rose); }
+
+.pf-overlay__progress {
+  margin-bottom: 12px;
+}
+
+.pf-overlay__progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--pf-text-muted);
+  margin-bottom: 4px;
+}
+
+.pf-overlay__progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.pf-overlay__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pf-gold), var(--pf-gold-light));
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.pf-overlay__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.pf-btn-sm {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 11px;
+}
+
+.pf-overlay__mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.pf-overlay__mini-time {
+  font-weight: 700;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pf-overlay__mini-score {
+  font-size: 10px;
+  color: var(--pf-text-muted);
+}
+
+/* Milestone */
+.pf-milestone-backdrop,
+.pf-report-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  background: rgba(6, 8, 15, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pf-fade-in 0.3s ease;
+}
+
+.pf-milestone,
+.pf-report {
+  position: relative;
+  width: min(420px, 92vw);
+  padding: 32px;
+  border-radius: 24px;
+  background: var(--pf-bg-elevated);
+  border: 1px solid var(--pf-border-strong);
+  box-shadow: 0 32px 100px rgba(0,0,0,0.6), 0 0 60px var(--pf-gold-glow);
+  text-align: center;
+  color: var(--pf-text);
+  animation: pf-fade-in 0.5s ease;
+}
+
+.pf-milestone__confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+.pf-confetti-piece {
+  position: absolute;
+  top: 20%;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--pf-gold);
+  animation: pf-confetti-fall 1.2s ease forwards;
+}
+
+.pf-confetti-piece:nth-child(even) { background: var(--pf-emerald); }
+.pf-confetti-piece:nth-child(3n) { background: var(--pf-sky); width: 4px; height: 8px; }
+
+.pf-milestone__badge {
+  display: inline-block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--pf-gold);
+  border: 1px solid var(--pf-border-strong);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.pf-milestone__title {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.pf-milestone__subtitle {
+  color: var(--pf-text-muted);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.pf-milestone__stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.pf-milestone__stats div span {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.pf-milestone__stats div label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pf-text-muted);
+}
+
+.pf-milestone__quote {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--pf-text-muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.pf-milestone__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Report */
+.pf-report {
+  text-align: left;
+}
+
+.pf-report__header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.pf-report__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--pf-text-muted);
+}
+
+.pf-report__header h2 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.pf-report__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pf-report__stat {
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.pf-report__value {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.pf-report__name {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pf-text-muted);
+}
+
+.pf-report__stat--success .pf-report__value { color: var(--pf-emerald); }
+.pf-report__stat--fail .pf-report__value { color: var(--pf-rose); }
+
+.pf-report__milestones {
+  text-align: center;
+  color: var(--pf-gold);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.pf-report__preview {
+  margin-bottom: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--pf-border);
+}
+
+.pf-report__preview img {
+  width: 100%;
+  display: block;
+}
+
+.pf-report__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
